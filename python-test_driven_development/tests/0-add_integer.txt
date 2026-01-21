@@ -1,30 +1,19 @@
-from add_integer import add_integer
-
-# Test addition of two integers
-add_integer(1, 2)
-# Expected output: 3
-
-add_integer(100, -2)
-# Expected output: 98
-
-# Test addition with default b
-add_integer(2)
-# Expected output: 100
-
-# Test addition with floats
-add_integer(100.3, -2)
-# Expected output: 98
-
-# Test TypeError for invalid b
-try:
-    add_integer(4, "School")
-except TypeError as e:
-    print(e)
-# Expected output: b must be an integer
-
-# Test TypeError for invalid a
-try:
-    add_integer(None)
-except TypeError as e:
-    print(e)
-# Expected output: a must be an integer
+>>> from add_integer import add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(100, -2)
+98
+>>> add_integer(2)
+100
+>>> add_integer(100.3, -2)
+98
+>>> try:
+...     add_integer(4, "School")
+... except TypeError as e:
+...     print(e)
+b must be an integer
+>>> try:
+...     add_integer(None)
+... except TypeError as e:
+...     print(e)
+a must be an integer
