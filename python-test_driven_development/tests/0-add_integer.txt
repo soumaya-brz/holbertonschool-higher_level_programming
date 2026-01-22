@@ -1,32 +1,60 @@
-0-add_integer
-=============
+import :
+	>>> add_integer = __import__('0-add_integer').add_integer
 
-Import the function:
+simple addition :
+	>>> add_integer(1, 2)
+	3
 
->>> add_integer = __import__('0-add_integer').add_integer
+negative addition :
+	>>> add_integer(-9999, 2)
+	-9997
 
-Simple additions:
+add with "a" as string :
+	>>> add_integer("a", 10)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
 
->>> add_integer(1, 2)
-3
->>> add_integer(100, -2)
-98
->>> add_integer(2)
-100
+add with "b" as string :
+	>>> add_integer(10, "b")
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
 
-Floats are cast to ints:
+add with "a" as list of int:
+	>>> add_integer([1, 2], 10)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
 
->>> add_integer(100.3, -2)
-98
->>> add_integer(3.9, 2.1)
-5
+add with "b" as list of int:
+	>>> add_integer(10, [1, 2])
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
 
-Type errors:
+add with "a" as float:
+	>>> add_integer(1.6, 10)
+	11
 
->>> add_integer(4, "School")
-Traceback (most recent call last):
-TypeError: b must be an integer
+add without "b":
+	>>> add_integer(1)
+	99
 
->>> add_integer(None)
-Traceback (most recent call last):
-TypeError: a must be an integer
+add with "a" infinite of float:
+	>>> add_integer(float('inf'), 0)
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+add with "a" as None:
+	>>> add_integer(None, 0)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+add with "a" NaN:
+    >>> add_integer(float('nan'), 10)
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
