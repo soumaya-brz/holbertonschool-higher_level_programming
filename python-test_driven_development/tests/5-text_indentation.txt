@@ -1,0 +1,16 @@
+>>> text_indentation("Hello. How are you? I am fine:")
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I am fine:
+<BLANKLINE>
+
+>>> text_indentation("No special character")
+No special character
+
+>>> try:
+...     text_indentation(123)
+... except TypeError as e:
+...     print(e)
+text must be a string
