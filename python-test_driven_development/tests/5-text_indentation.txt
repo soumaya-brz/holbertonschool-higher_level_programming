@@ -1,5 +1,4 @@
->>> text_indentation = __import__('5-text_indentation').text_indentation
-
+>>> from 5-text_indentation import text_indentation
 >>> text_indentation("Hello. How are you? I am fine:")
 Hello.
 
@@ -9,7 +8,6 @@ I am fine:
 
 >>> text_indentation("No special character")
 No special character
-
 >>> try:
 ...     text_indentation(123)
 ... except TypeError as e:
