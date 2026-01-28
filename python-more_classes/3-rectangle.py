@@ -1,11 +1,18 @@
+
 #!/usr/bin/python3
-"""Defines a Rectangle class with width, height, area, perimeter, str and repr"""
+"""Defines a Rectangle class"""
+
 
 class Rectangle:
-    """Represents a rectangle with width and height"""
+    """Represents a rectangle"""
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle instance"""
+        """Initialize a new Rectangle instance
+
+        Args:
+            width (int): width of the rectangle
+            height (int): height of the rectangle
+        """
         self.width = width
         self.height = height
 
@@ -16,7 +23,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """Set the width of the rectangle with validation"""
+        """Set the width of the rectangle"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -30,7 +37,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """Set the height of the rectangle with validation"""
+        """Set the height of the rectangle"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -48,11 +55,11 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return a string to print the rectangle with '#'"""
+        """Return the rectangle as a string of '#' characters"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(["#" * self.__width for _ in range(self.__height)])
+        return "\n".join("#" * self.__width for _ in range(self.__height))
 
     def __repr__(self):
-        """Return a string representation to recreate the rectangle"""
+        """Return a string representation that can recreate the object"""
         return f"Rectangle({self.__width}, {self.__height})"
