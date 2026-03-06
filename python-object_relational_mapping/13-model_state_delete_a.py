@@ -8,13 +8,9 @@ from model_state import Base, State
 
 
 def main():
-    """Connect to DB and delete states with 'a' in name."""
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
+    """Connect to DB and delete states whose name contains 'a'."""
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(username, password, database),
+        f"mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}",
         pool_pre_ping=True
     )
 
