@@ -6,7 +6,7 @@ import sys
 
 
 def main():
-    """Connect to MySQL and list states starting with N"""
+    """Connect to MySQL and display states starting with N"""
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -22,7 +22,7 @@ def main():
     cursor = db.cursor()
 
     cursor.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
     )
 
     states = cursor.fetchall()
