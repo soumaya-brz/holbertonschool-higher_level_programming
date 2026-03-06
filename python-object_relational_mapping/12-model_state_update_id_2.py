@@ -8,13 +8,9 @@ from model_state import Base, State
 
 
 def main():
-    """Connect to MySQL and update state id 2."""
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
+    """Connect to DB and update state id 2."""
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(username, password, database),
+        f"mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}",
         pool_pre_ping=True
     )
 
