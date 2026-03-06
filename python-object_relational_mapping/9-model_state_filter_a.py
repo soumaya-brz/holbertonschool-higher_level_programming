@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Print the first State object from the database."""
+"""List all State objects that contain the letter 'a'."""
 
 import sys
 from sqlalchemy import create_engine
@@ -8,7 +8,7 @@ from model_state import Base, State
 
 
 def main():
-    """Connect to MySQL and display the first state by id."""
+    """Connect to MySQL and filter states containing 'a'."""
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -21,12 +21,15 @@ def main():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state = session.query(State).order_by(State.id).first()
+    states = (
+        session.query(State)
+        .filter(State.name.like('%a%'))
+        .order_by(State.id)
+        .all()
+    )
 
-    if state:
+    for state in states:
         print(f"{state.id}: {state.name}")
-    else:
-        print("Nothing")
 
     session.close()
 
